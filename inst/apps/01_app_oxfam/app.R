@@ -887,7 +887,7 @@ server <-  function(input, output, session) {
     # dtable
   })
 
-  output$debug <- render#print({
+  output$debug <- renderPrint({
 
     #oxfam_one
     data_viz()
