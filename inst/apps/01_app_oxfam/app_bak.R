@@ -110,8 +110,8 @@ server <-  function(input, output, session) {
 
   get_basic_lang_data <- reactive({
     if(is.null(input$Indicator)) return()
-    # #print("var")
-    # #print(var)
+    # print("var")
+    # print(var)
     temp <-  NULL
     if(lang()=="en"){
 
@@ -225,9 +225,9 @@ server <-  function(input, output, session) {
 
     if(class(get_basic_lang_data())=="data.frame")  temp <- get_basic_lang_data()
     temp <- (get_basic_lang_data())
-    # #print(  unique(temp |> select(fecha) |> arrange(fecha) |> head(1) ))
+    # print(  unique(temp |> select(fecha) |> arrange(fecha) |> head(1) ))
     t <- unique(temp |> select(fecha) |> arrange(fecha) |> head(1) )
-    # #print(format(as.Date(t$fecha, format="%Y/%m/%d")))
+    # print(format(as.Date(t$fecha, format="%Y/%m/%d")))
     format(as.Date(t$fecha, format="%Y/%m/%d"))
     # as.vector(format(as.Date(t$fecha, format="%Y/%m/%d"),format="%d/%m/%Y"))
 
@@ -240,9 +240,9 @@ server <-  function(input, output, session) {
 
     if(class(get_basic_lang_data())=="data.frame")  temp <- get_basic_lang_data()
     temp <- (get_basic_lang_data())
-    # #print(  unique(temp |> select(fecha) |> arrange(fecha) |> head(1) ))
+    # print(  unique(temp |> select(fecha) |> arrange(fecha) |> head(1) ))
     t <- unique(temp |> select(fecha) |> arrange(desc(fecha)) |> head(1) )
-    # #print(format(as.Date(t$fecha, format="%Y/%m/%d")))
+    # print(format(as.Date(t$fecha, format="%Y/%m/%d")))
     format(as.Date(t$fecha, format="%Y/%m/%d"))
 
   })
@@ -362,7 +362,7 @@ server <-  function(input, output, session) {
       }
       # else{
       #
-      # if(is.null(input$Country)) #print("entrooooo4")
+      # if(is.null(input$Country)) print("entrooooo4")
       #
       # }
 
@@ -391,8 +391,8 @@ server <-  function(input, output, session) {
       }
     }
 
-    #print(click_viz$id)
-    #print(click_viz$cat)
+    print(click_viz$id)
+    print(click_viz$cat)
   })
 
 
@@ -405,7 +405,7 @@ server <-  function(input, output, session) {
     names(data) <- dic$id
     pais_temp <-  input$Country
     if(is.null(input$Country)) pais_temp <- "All"
-    #print(pais_temp)
+
     var_inputs <-  list( pais = as.vector(pais_temp)) #, fecha= input$data_range) #list(input$Indicator,input$Country)
     data_result <- data_filter(data.frame(data),
                                dic,
@@ -436,7 +436,7 @@ server <-  function(input, output, session) {
 
 
   output$viz_icons <- renderUI({
-    ###########print("icons")
+    ##########print("icons")
     req(possible_viz())
     possible_viz <- possible_viz()
     #
@@ -522,9 +522,8 @@ server <-  function(input, output, session) {
                                    group_var =group_var)
 
 
-    if(actual_but$active %in% c("line","scatter"))   names(data_result) = i_(c("pais","fecha", trad),lang=lang())
-    else  names(data_result) = i_(c("pais", trad),lang=lang())
-     data_result
+    names(data_result) = i_(c("pais", trad),lang=lang())
+    data_result
   })
   ###############calendar pending
 
@@ -551,7 +550,7 @@ server <-  function(input, output, session) {
 
 
     }
-    #print(prex)
+    print(prex)
     prex
   }
 
@@ -659,7 +658,7 @@ server <-  function(input, output, session) {
         opts$clickFunction <- htmlwidgets::JS(myFunc)
         opts$palette_colors <- "#ef4e00"
         if (actual_but$active == "line" | actual_but$active == "scatter" ) {
-          #print("INNNNNNNNNNNNNNNNNN")
+          print("INNNNNNNNNNNNNNNNNN")
           opts$marker_enabled <- FALSE
           opts$palette_colors <- c("#47BAA6", "#151E42", "#FF4824", "#FFCF06",
                                    "#FBCFA4", "#FF3D95","#B13168")
@@ -887,7 +886,7 @@ server <-  function(input, output, session) {
     # dtable
   })
 
-  output$debug <- render#print({
+  output$debug <- renderPrint({
 
     #oxfam_one
     data_viz()

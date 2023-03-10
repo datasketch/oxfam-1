@@ -1,0 +1,37 @@
+---
+Country:
+  show: true
+  input_type: selectizeInput
+  input_params:
+    label: country_label()
+    choices: sel_country()
+    selected: country_url_r()
+    multiple: true
+    options:
+      placeholder: All
+      plugins:
+      - - remove_button
+      - - drag_drop
+
+Indicator:
+  show: true
+  input_type: selectizeInput
+  input_params:
+    label: indicator_label()
+    selected: indicator_url_r()
+    choices: sel_indicators()
+    multiple: true
+    options:
+      placeholder: All
+      plugins:
+      - - remove_button
+      - - drag_drop
+
+
+Operation_rb:
+  show: true
+  input_type: radioButtons
+  input_params:
+    label: ""
+    choices: operations()
+
