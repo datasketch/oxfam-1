@@ -15,7 +15,6 @@ Depends:
 Imports:
     dsapptools,
     hgchmagic
-   
 Remotes: 
     facarranza/dsapptools,
     datasketch/hgchmagic@c7a5e86

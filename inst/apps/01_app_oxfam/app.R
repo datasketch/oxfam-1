@@ -302,7 +302,7 @@ server <-  function(input, output, session) {
 
     query <- parseQueryString(session$clientData$url_search)
     temp <- stringr::str_to_title(query[["pais"]])
-
+    i_(temp, lang=lang())
   })
 
 
