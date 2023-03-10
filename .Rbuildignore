@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^oxfam\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
