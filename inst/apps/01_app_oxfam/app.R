@@ -524,7 +524,8 @@ server <-  function(input, output, session) {
 
     if(actual_but$active %in% c("line","scatter"))   names(data_result) = i_(c("pais","fecha", trad),lang=lang())
     else  names(data_result) = i_(c("pais", trad),lang=lang())
-     data_result
+
+    as.data.frame(data_result)
   })
   ###############calendar pending
 
@@ -721,8 +722,8 @@ server <-  function(input, output, session) {
       if (actual_but$active == "bar") {
         opts$palette_colors <- c("#47BAA6", "#151E42", "#FF4824", "#FFCF06",
                                  "#FBCFA4", "#FF3D95","#B13168")
-        opts$ver_title <- "Drug type"
-        # opts$hor_title <- stringr::str_to_sentence(input$InsId_rb)
+        # opts$ver_title <- "Drug type"
+        # # opts$hor_title <- stringr::str_to_sentence(input$InsId_rb)
         opts$format_sample_num = "10M"
         # if(input$sel_check_opt == FALSE){ opts$sort <- "desc" }
 
@@ -890,7 +891,7 @@ server <-  function(input, output, session) {
   output$debug <- renderPrint({
 
     #oxfam_one
-    data_viz()
+    # data_viz()
     # data_prep()
   })
 
